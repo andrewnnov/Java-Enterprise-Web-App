@@ -50,7 +50,7 @@ public class UserMealsUtil {
             caloriesSumPerDate.put(mealDate, caloriesSumPerDate.getOrDefault(mealDate, 0) + meal.getCalories());
         }
 
-
+        //
         List<UserMealWithExceed> mealExceeded = new ArrayList<>();
         for (UserMeal meal: mealList) {
             LocalDateTime dateTime = meal.getDateTime();

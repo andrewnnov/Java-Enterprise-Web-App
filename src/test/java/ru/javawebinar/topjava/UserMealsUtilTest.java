@@ -1,7 +1,5 @@
 package ru.javawebinar.topjava;
 
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.model.UserMealWithExceed;
@@ -11,20 +9,13 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static ru.javawebinar.topjava.util.UserMealsUtil.getFilteredWithExceeded;
-import static org.junit.Assert.*;
 
 public class UserMealsUtilTest {
 
-    UserMealsUtil userMealsUtil = new UserMealsUtil();
-
-
+   UserMealsUtil userMealsUtil = new UserMealsUtil();
 
     @Test
     public void whenWeHaveOnlyBreakfastThenOneNote() {
@@ -49,7 +40,14 @@ public class UserMealsUtilTest {
         List<UserMealWithExceed> result = userMealsUtil.getFilteredWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
 
 
-        assertThat(result.size(), is(2));
+
+        assertEquals("Завтрак", result.get(0).getDescription());
+        assertEquals(500, result.get(0).getCalories());
+
+        result.remove(0);
+
+        assertEquals("Завтрак", result.get(0).getDescription());
+        assertEquals(1000, result.get(0).getCalories());
 
 
 

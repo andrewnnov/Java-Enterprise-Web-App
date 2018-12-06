@@ -65,7 +65,7 @@ public class UserMealsUtil {
         return mealExceeded;
     }
 
-    public static List<UserMealWithExceed>  getFilteredWithExceededStream(List<UserMeal> mealList,
+    public static List<UserMealWithExceed> getFilteredWithExceededStream(List<UserMeal> mealList,
                                                                           LocalTime startTime,
                                                                           LocalTime endTime,
                                                                           int caloriesPerDay){
